@@ -1,6 +1,8 @@
 # Cataract
 JHU image processing of capsulorhexis surgery
 
+Note that due to openCV changing function and parameter names between operating systems (`cv2.cv.CV_HOUGH_GRADIENT` vs `cv2.HOUGH_GRADIENT` comes to mind), the code only works on windows, but it should only take a few minutes to port it to linux; only around 5 names are changed
+
 Here is an overview of the algorithm used
 
 1. blur image
