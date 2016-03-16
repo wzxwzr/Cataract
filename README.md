@@ -17,7 +17,7 @@ Here is an overview of the algorithm used
 6. find the contours within this image
 6. perform canny edge detection on the thresholded image
 7.  mask out everything outside 113% of the pupil
-8.  perform line detection on the two cannys
+8.  perform line segment detection on the two cannys, producing lines1 and lines2. Extend the segments a bit to the left
 9.  filter lines which are too close to the circumference of the circle
 10.  filter lines which have the wrong slope, based on prediction as well as overall flow of lines
 11.  filter lines which have the wrong `pseudo y intercept`, which is where the line would intersect the verticle axis 50 pixels to the left of the centre of the eye
@@ -28,5 +28,6 @@ Notes/TODO:
 
 + `predict_math.py` needs to be updated so that if the previous frames had no detection, it returns `None`
 + Currently, it doesn't store frames without detected circles or tools. It should store a null result
-+ Should add hsv thresholding to find the tool, can be done via subtracting the pupil from the original frame and masking out everything outside 113% of the pupil. See `todo.py` for sample implementation
++ Should add hsv thresholding to find the tool, can be done via subtracting the pupil from the original frame and masking out everything outside 113% of the pupil. See `todo.py` for sample implementation. If this is implemented, the tool would = ( lines1 ∪ lines2 ) ∩ ( contours ∪ thresholded )
 + The program doesn't deal with multiple tools very well, which shows during the video section involving tweezers rather than a scalpel. Could update the tool storage container to allow multiple tools. Alternatively, just detect when the section with one tool is finished and increase `angle_variance` and `y_int_variance` accordingly
++ An interesting approach to find the tool is to compute k-means clustering on hsv space, and select the cluster(s) which best matches where the algorithm says the tool should be. In this case, tool = ( lines1 ∪ lines2 ) ∩ ( contours ∪ thresholded ) ∩ clusters
