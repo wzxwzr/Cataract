@@ -18,7 +18,7 @@ Here is an overview of the algorithm used
 8.  perform line detection on the two cannys
 9.  filter lines which are too close to the circumference of the circle
 10.  filter lines which have the wrong slope, based on prediction as well as overall flow of lines
-11.  filter lines which have the wrong "pseudo y intercept", which is where the line would intersect 50 pixels to the left of the centre of the eye
+11.  filter lines which have the wrong `pseudo y intercept`, which is where the line would intersect the verticle axis 50 pixels to the left of the centre of the eye
 12.  compute ( lines1 ∪ lines2 ) ∩ contours, this is the tool
 13.  find the leftmost part of the tool, this is the tip
 
