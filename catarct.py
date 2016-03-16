@@ -5,10 +5,9 @@ print("Loaded libraries")
 
 
 
-input_video = r"D:\Documents\Eye stuff\OpenCV\vid_008.avi"
-#input_video = r"D:\Documents\Eye stuff\OpenCV\PGY4 cataract_Sikder_Houle_chop_WilmerOR6_11-28-2011.avi"
-output_video = r"D:\Documents\Eye stuff\OpenCV\processed_video.avi"
-output_directory = "D:\\Documents\\Eye stuff\\OpenCV\processed\\"
+input_video = ""
+output_video = ""
+output_directory = ""
 
 past_frames = []
 past_circles = []
