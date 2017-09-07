@@ -1,13 +1,14 @@
 import numpy as np
 import cv2
 from predict_math import *
+import os
 print("Loaded libraries")
 
 
 
 input_video = ""
 output_video = ""
-output_directory = ""
+output_directory = os.path.dirname(output_video)
 
 past_frames = []
 past_circles = []
@@ -124,7 +125,7 @@ def user_input_calibration():
 
 #function definitions
 def circle_distance(x,y,r,xx,yy,rr):
-  return np.sqrt((x+r-xx-rr)**2+(y-yy)**2) + np.sqrt((x-r-xx++rr)**2+(y-yy)**2) + np.sqrt((x-xx)**2+(y+r-rr-yy)**2) + np.sqrt((x-xx)**2+(y-r+rr-yy)**2)
+  return np.sqrt((x+r-xx-rr)**2+(y-yy)**2) + np.sqrt((x-r-xx+rr)**2+(y-yy)**2) + np.sqrt((x-xx)**2+(y+r-rr-yy)**2) + np.sqrt((x-xx)**2+(y-r+rr-yy)**2)
 
 def cart2pol(x,y,Xc,Yc):
     rho = np.sqrt((x-Xc)**2 + (y-Yc)**2)
